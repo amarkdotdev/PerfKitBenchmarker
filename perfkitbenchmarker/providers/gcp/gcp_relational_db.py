@@ -64,6 +64,7 @@ GCP_DATABASE_VERSION_MAPPING = {
         '15': 'POSTGRES_15',
         '16': 'POSTGRES_16',
         '17': 'POSTGRES_17',
+        '18': 'POSTGRES_18',
     },
     sql_engine_utils.SQLSERVER: {
         '2017_Standard': 'SQLSERVER_2017_Standard',
@@ -78,13 +79,16 @@ GCP_DATABASE_VERSION_MAPPING = {
         '2022_Enterprise': 'SQLSERVER_2022_ENTERPRISE',
         '2022_Express': 'SQLSERVER_2022_EXPRESS',
         '2022_Web': 'SQLSERVER_2022_WEB',
+        '2025_Standard': 'SQLSERVER_2025_STANDARD',
+        '2025_Enterprise': 'SQLSERVER_2025_ENTERPRISE',
+        '2025_Express': 'SQLSERVER_2025_EXPRESS',
     },
 }
 
 
 DEFAULT_MYSQL_VERSION = '8.4'
-DEFAULT_POSTGRES_VERSION = '17'
-DEFAULT_SQL_SERVER_VERSION = '2017_Standard'
+DEFAULT_POSTGRES_VERSION = '18'
+DEFAULT_SQL_SERVER_VERSION = '2025_Enterprise'
 
 DEFAULT_ENGINE_VERSIONS = {
     sql_engine_utils.MYSQL: DEFAULT_MYSQL_VERSION,
@@ -130,6 +134,7 @@ _SQLSERVER_METRICS = [
     ('sqlserver/memory/buffer_cache_hit_ratio', '%', lambda x: x * 100),
     ('sqlserver/memory/memory_grants_pending', 'count', None),
     ('sqlserver/memory/free_list_stall_count', 'count', None),
+    ('sqlserver/transactions/batch_request_count', 'count', None),
 ]
 # pyformat: enable
 
